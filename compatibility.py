@@ -52,7 +52,7 @@ def score_applicants(team: List[Dict], applicants: List[Dict]) -> List[Dict]:
     scored = []
     for person in applicants:
         dist   = euclidean(person["attributes"], team_mean)
-        score  = round(normalise(dist, num_attrs), 3)  # keep 3 decimals
+        score  = round(normalise(dist, num_attrs), 1)  # could tweek to 3 decimals for more accurate measure
         scored.append({"name": person["name"], "score": score})
     return scored
 
