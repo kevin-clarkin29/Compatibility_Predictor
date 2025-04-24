@@ -69,9 +69,9 @@ def normalise(distance: float,
     return 1 - distance / max_distance       # Invert so larger = better
 
 
-# ---------------------------------------------------------------------------
+
 # Core scoring routine
-# ---------------------------------------------------------------------------
+
 
 def score_applicants(team: List[Dict],
                      applicants: List[Dict]) -> List[Dict]:
@@ -92,27 +92,27 @@ def score_applicants(team: List[Dict],
         # 1 · Euclidean distance to the mean
         dist = euclidean(person["attributes"], team_mean)
         # 2 · Convert to 0–1 scale & round to one decimal
-        score = round(normalise(dist, num_attrs), 1)
+        score = round(normalise(dist, num_attrs), 1) # Can change 1 to 3 for better procision
         # 3 · Append result object
         scored.append({"name": person["name"], "score": score})
 
     return scored
 
 
-# ---------------------------------------------------------------------------
+
 # Command-line interface
-# ---------------------------------------------------------------------------
+
 
 def main() -> None:
     """Entry-point for CLI usage."""
     if len(sys.argv) != 2:
         sys.exit("Usage: python compatibility.py <input.json>")
 
-    # --- Read input JSON ----------------------------------------------------
+    # Read input JSON 
     with open(sys.argv[1], encoding="utf-8") as fp:
         data = json.load(fp)                    # Obj with "team" & "applicants"
 
-    # --- Compute scores -----------------------------------------------------
+    # Compute scores
     output = {
         "scoredApplicants": score_applicants(
             data["team"],

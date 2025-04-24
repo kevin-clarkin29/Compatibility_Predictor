@@ -1,6 +1,6 @@
 # Compatibility Predictor – Datahouse Take‑Home
 
-Tiny Python 3 script that reads team / applicant data (JSON), scores each applicant on a **0 – 1** scale, and writes a new JSON file with **one‑decimal** scores (matching the sample in the PDF).
+Python 3 script that reads team / applicant data from an input JSON, scores each applicant on a **0 – 1** scale, and writes a new JSON file with **one‑decimal** scores (matching the sample in the PDF). The score can become more precise by tweaking the score variable on line 95 from 1 to the desired decimal point.
 
 ---
 
@@ -35,9 +35,6 @@ Example result:
   ]
 }
 ```
-
-*(Values may vary slightly if you tweak parameters; see below.)*
-
 ---
 
 ## 🧮 How scoring works
@@ -49,8 +46,10 @@ Example result:
 
 3. **Normalise & invert**  
    `score = 1 – (d / d_max)`  
-   where `d_max` is the distance from `[0,0,…]` to `[10,10,…]`.  
+   where `d_max` is the distance if every attribute differed by 10  
+   (i.e. between `[0, 0, …]` and `[10, 10, …]`).  
    Result is rounded to **one decimal place**.
+
  
  ---
 
