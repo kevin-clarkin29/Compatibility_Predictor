@@ -43,17 +43,17 @@ Example result:
 ## 🧮 How scoring works
 
 1. **Team mean** – compute the average attribute vector  
-   $$
+   $
     \overline{v} \;=\; \frac{1}{|T|}\sum_{t \in T} t_{\text{attributes}}
-   $$
+   $
 
 2. **Similarity** – calculate **Euclidean distance** $d$ between an applicant vector $a$ and $\overline{v}$.
 
 3. **Normalise & invert**
 
-   $$
+   $
    \text{score} = 1 - \frac{d}{d_{\text{max}}}
-   $$  
+   $  
    where $d_{\text{max}}$ is the worst-case distance (all 0 vs all 10).
  
    Result is rounded to **one decimal place**.
