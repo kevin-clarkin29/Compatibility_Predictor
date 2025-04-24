@@ -42,21 +42,15 @@ Example result:
 
 ## 🧮 How scoring works
 
-1. **Team mean** – compute the average attribute vector  
-   $
-    \overline{v} \;=\; \frac{1}{|T|}\sum_{t \in T} t_{\text{attributes}}
-   $
+1. **Team mean** – average attribute vector  
+   `v̄ = (1 / |T|) × Σ t∈T t_attributes`
 
-2. **Similarity** – calculate **Euclidean distance** $d$ between an applicant vector $a$ and $\overline{v}$.
+2. **Similarity** – Euclidean distance `d` between an applicant vector `a` and `v̄`.
 
-3. **Normalise & invert**
-
-   $
-   \text{score} = 1 - \frac{d}{d_{\text{max}}}
-   $  
-   where $d_{\text{max}}$ is the worst-case distance (all 0 vs all 10).
- 
+3. **Normalise & invert**  
+   `score = 1 – (d / d_max)`  
+   where `d_max` is the distance from `[0,0,…]` to `[10,10,…]`.  
    Result is rounded to **one decimal place**.
-
----
+ 
+ ---
 
