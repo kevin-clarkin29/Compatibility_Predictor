@@ -8,7 +8,7 @@ Tiny Python 3 script that reads team / applicant data (JSON), scores each appli
 
 ```text
 .
-├── compatibility.py       # < 70 LOC, no external deps
+├── compatibility.py       
 ├── sample_input.json      # given data
 ├── output.json            # produced by the script
 ├── .gitignore             # excludes venv/, __pycache__, etc.
